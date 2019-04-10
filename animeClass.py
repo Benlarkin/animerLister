@@ -5,11 +5,20 @@ class Anime:
         self.episodes = episodes
         self.genre = genre
         self.ranking = ranking
-    def getTitle(self):
+    def get_Title(self):
         return self.title
-    def getEpisodes(self):
+    def get_Episodes(self):
         return self.episodes
-    def getGenre(self):
+    def get_Genre(self):
         return self.genre
-    def getRanking(self):
+    def get_Ranking(self):
         return self.ranking
+    def set_Title(self, x):
+        self.title = x
+    def set_Episodes(self, x):
+        self.episodes = x
+    def set_Genre(self, x):
+        self.genre = x
+    def set_Ranking(self, x):
+        self.ranking = x
+    

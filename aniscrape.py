@@ -8,17 +8,17 @@ url = 'https://myanimelist.net/anime/season'
 page = requests.get(url)
 soup = BeautifulSoup(page.text, 'html.parser')
 titlesoup = soup.find(class_='seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix').find_all(class_='link-title')
-out = []
-for elem in titlesoup:
-    out.append(elem.text)
-#print(out)
+seasonal_titles = []
+for title in titlesoup:
+    seasonal_titles.append(title.text)
+print(seasonal_titles)
 
 
 '''
 #imported animeClass above and create an instance of Anime object with the values for one punch man
 #testing the Anime object
 OPM = Anime("One Punch Man", 12, "Action", 15)
-print(OPM.getGenre())
+print(OPM.get_Genre())
 '''
 
 #use soup to get all tags with titletext maybe?
