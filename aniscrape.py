@@ -7,13 +7,26 @@ from bs4 import BeautifulSoup
 url = 'https://myanimelist.net/anime/season'
 page = requests.get(url)
 soup = BeautifulSoup(page.text, 'html.parser')
-titlesoup = soup.find(class_='seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix').find_all(class_='link-title')
-seasonal_titles = []
-for title in titlesoup:
-    seasonal_titles.append(title.text)
-print(seasonal_titles)
 
+def title_scraping():
+    titlesoup = soup.find(class_='seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix').find_all(class_='link-title')
+    seasonal_titles = []
+    for title in titlesoup:
+        seasonal_titles.append(title.text)
+    #print(seasonal_titles)
+    return seasonal_titles
 
+def episode_scraping():
+    episodesoup = soup.find(class_='seasonal-anime-list js-seasonal-anime-list js-seasonal-anime-list-key-1 clearfix').find_all(class_='eps')
+    #getting error about find vs find all, want the spans that contains episode #, although it seems pointless right now
+    #spans = episodesoup.find_all('span')
+    print(episodesoup)
+    episode_count = []
+    for episode in episodesoup:
+        episode_count.append(episode.text)
+    #print(episode_count)
+    return episode_count
+episode_scraping()
 '''
 #imported animeClass above and create an instance of Anime object with the values for one punch man
 #testing the Anime object
